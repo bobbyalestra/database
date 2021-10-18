@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk, Image
+# from PIL import ImageTk, Image
 import sqlite3
 
 root = Tk()
@@ -39,7 +39,7 @@ def submit():
     c = conn.cursor()
 
 # Insert into table
-    c.execute("INSERT INTO addresses VALUES (:f_name, :l_name), :address, :city, :state, :zipcode",
+    c.execute("INSERT INTO addresses VALUES (:f_name, :l_name, :address, :city, :state, :zipcode",
               {
                   'f_name': f_name.get(),
                   'l_name': l_name.get(),
@@ -110,7 +110,7 @@ zipcode_label.grid(row=5, column=0)
 
 # Create Submit Button
 
-submit_btn = Button(root, text= "Add To DataBase", command=submit)
+submit_btn = Button(root, text="Add To DataBase", command=submit)
 submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
 
@@ -120,6 +120,5 @@ conn.commit()
 # Close Connection
 
 conn.close()
-
 
 root.mainloop()
