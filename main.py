@@ -28,11 +28,35 @@ c.execute(""" CREATE TABLE addresses (
 """)
 '''
 
+# Create Submit Function for Database
 
-
-# Create Submit Funciton for DSatabase
 
 def submit():
+    # create or connect to database
+
+    conn = sqlite3.connect('address_book.db')
+    # Create Cursor
+    c = conn.cursor()
+
+# Insert into table
+    c.execute("INSERT INTO addresses VALUES (:f_name, :l_name), :address, :city, :state, :zipcode",
+              {
+                  'f_name': f_name.get(),
+                  'l_name': l_name.get(),
+                  'address': address.get(),
+                  'city': city.get(),
+                  'state': state.get(),
+                  'zipcode': zipcode.get()
+
+              })
+
+    # Commit changes
+    conn.commit()
+
+    # Close Connection
+
+    conn.close()
+
     # Clear TextBox
     f_name.delete(0, END)
     l_name.delete(0, END)
