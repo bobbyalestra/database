@@ -15,7 +15,7 @@ conn = sqlite3.connect('address_book.db')
 c = conn.cursor()
 
 # Create table
-
+'''
 c.execute(""" CREATE TABLE addresses (
         first_name text, 
         last_name text,
@@ -26,10 +26,54 @@ c.execute(""" CREATE TABLE addresses (
         )
 
 """)
+'''
+
+# Create TextBoxes
+
+f_name = Entry(root, width=30)
+f_name.grid(row=0, column=0, padx=20)
+
+l_name = Entry(root, width=30)
+l_lame.grid(row=1, column=1)
+
+address = Entry(root, width=30)
+address.grid(row=2, column=1)
+
+city = Entry(root, width=30)
+city.grid(row=3, column=1)
+
+state = Entry(root, width=30)
+state.grid(row=4, column=1)
+
+zipcode = Entry(root, width=30)
+zipcode.grid(row=5, column=1)
 
 
+# Create Textbox labels
 
-# commit changes
+f_name_label = Label(root, text="First Name")
+f_name_label.grid(row=0, column=0)
+
+l_name_label = Label(root, text="Last Name")
+l_name_label.grid(row=1, column=0)
+
+address_label = Label(root, text="Address Name")
+address_label.grid(row=2, column=0)
+
+city_label = Label(root, text="City Name")
+city_label.grid(row=3, column=0)
+
+state_label = Label(root, text="State Name")
+state_label.grid(row=4, column=0)
+
+zipcode_label = Label(root, text="Zipcode Name")
+zipcode_label.grid(row=5, column=0)
+
+
+# Create Submit Button
+
+
+#  Commit changes
 conn.commit()
 
 # Close Connection
