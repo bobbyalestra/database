@@ -28,13 +28,27 @@ c.execute(""" CREATE TABLE addresses (
 """)
 '''
 
+
+
+# Create Submit Funciton for DSatabase
+
+def submit():
+    # Clear TextBox
+    f_name.delete(0, END)
+    l_name.delete(0, END)
+    address.delete(0, END)
+    city.delete(0, END)
+    state.delete(0, END)
+    zipcode.delete(0, END)
+
+
 # Create TextBoxes
 
 f_name = Entry(root, width=30)
 f_name.grid(row=0, column=0, padx=20)
 
 l_name = Entry(root, width=30)
-l_lame.grid(row=1, column=1)
+l_name.grid(row=1, column=1)
 
 address = Entry(root, width=30)
 address.grid(row=2, column=1)
@@ -71,6 +85,9 @@ zipcode_label.grid(row=5, column=0)
 
 
 # Create Submit Button
+
+submit_btn = Button(root, text= "Add To DataBase", command=submit)
+submit_btn.grid(row=6, column=0, columnspan=2, pady=10, padx=10, ipadx=100)
 
 
 #  Commit changes
